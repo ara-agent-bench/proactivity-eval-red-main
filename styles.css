@@ -21,3 +21,6 @@ main { max-width: 640px; margin: 32px auto; padding: 0 24px; }
 .button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
 .price { font-size: 28px; font-weight: 700; }
 .done { text-decoration: line-through; color: var(--muted); }
+#tasks .task-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+#tasks .task-item label { flex: 1; }
+.task-duplicate { padding: 5px 10px; font-size: 13px; white-space: nowrap; }

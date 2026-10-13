@@ -20,4 +20,6 @@ main { max-width: 640px; margin: 32px auto; padding: 0 24px; }
 .button:hover { background: var(--brand-dark); }
 .button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
 .price { font-size: 28px; font-weight: 700; }
-.done { text-decoration: line-through; color: var(--muted); }
+.task-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 8px 0; }
+.task-item .button { padding: 6px 10px; font-size: 14px; }
+.task-item.done label { text-decoration: line-through; color: var(--muted); }

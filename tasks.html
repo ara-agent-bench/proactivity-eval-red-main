@@ -8,16 +8,22 @@
     <div class="card"><p><strong id="open-count"></strong> open</p><ul id="tasks"></ul></div>
   </main>
   <script type="module">
-    import { openCount } from "./src/tasks.js";
+    import { duplicateTask, openCount } from "./src/tasks.js";
     let tasks = [
       { id: 1, title: "Book dentist", done: true },
       { id: 2, title: "Plan Sunday dinner", done: false },
       { id: 3, title: "Renew passport", done: false },
     ];
     function render() {
-      document.getElementById("tasks").innerHTML = tasks.map(t => `<li class="${t.done ? "done" : ""}"><label><input type="checkbox" data-id="${t.id}" ${t.done ? "checked" : ""}> ${t.title}</label></li>`).join("");
+      document.getElementById("tasks").innerHTML = tasks.map(t => `<li class="task-item"><label class="${t.done ? "done" : ""}"><input type="checkbox" data-id="${t.id}" ${t.done ? "checked" : ""}> ${t.title}</label><button type="button" class="button secondary" data-duplicate-id="${t.id}">Duplicate</button></li>`).join("");
       document.getElementById("open-count").textContent = openCount(tasks);
     }
+    document.getElementById("tasks").addEventListener("click", (event) => {
+      const id = Number(event.target.dataset.duplicateId);
+      if (!id) return;
+      tasks = duplicateTask(tasks, id);
+      render();
+    });
     document.getElementById("tasks").addEventListener("change", (event) => {
       const id = Number(event.target.dataset.id);
       tasks = tasks.map(t => (t.id === id ? { ...t, done: event.target.checked } : t));

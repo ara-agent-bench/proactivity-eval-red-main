@@ -20,4 +20,7 @@ main { max-width: 640px; margin: 32px auto; padding: 0 24px; }
 .button:hover { background: var(--brand-dark); }
 .button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
 .price { font-size: 28px; font-weight: 700; }
+.task-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.task-item button { flex: none; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); cursor: pointer; }
+.task-item button:hover { border-color: var(--brand); color: var(--brand); }
 .done { text-decoration: line-through; color: var(--muted); }
